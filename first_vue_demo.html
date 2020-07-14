@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--    引入vue.js框架-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<!--    视图，相当于MVVM中的V-->
+    <div id="app">
+        {{ msg }}
+    </div>
+    <script>
+        // 创建Vue实例，相当于MVVM中的VM
+        let vm = new Vue({
+            // 指定要操作的元素
+            el: '#app',
+            // 构建虚拟数据，相当于MVVM中的M
+            data: {
+                msg: "hello-world"
+            }
+        })
+    </script>
+
+</body>
+</html>
