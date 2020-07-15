@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+<body>
+
+<button>按钮1</button>
+<button>按钮2</button>
+<button>按钮3</button>
+<button>按钮4</button>
+<button>按钮5</button>
+
+<script>
+    /**
+     没有块级作用域引起的问题:for块级
+     定义五个按钮，增加事件，点击哪个按钮打印“第哪个按钮被点击了”。
+     for块级中使用var声明变量i时，是全局变量，点击任意按钮结果都是“第五个按钮被点击了”。
+     说明在执行btns[i].addEventListener('click',function())时，for块级循环已经走完，此时i=5，所有添加的事件的i都是5。
+     */
+    // var btns = document.getElementsByTagName("button");
+    // for (var i = 0; i < btns.length; i++) {
+    //     console.log("i：" + i)
+    //     btns[i].addEventListener('click', function (param) {
+    //         console.log("第" + i + "个按钮被点击了");
+    //     });
+    // }
+    /**
+     * 改造上述代码，将for循环改造，由于函数有作用域，使用闭包能解决上述问题。
+     * 使用闭包,函数有作用域
+     * 借用函数的作用域解决块级作用域的问题，因为有块级作用域，每次添加的i都是当前i。
+     */
+    // var btns = document.getElementsByTagName("button");
+    // for (var i = 0; i < btns.length; i++) {
+    //     (function (i) {
+    //         btns[i].addEventListener('click', function (param) {
+    //             console.log("第" + (i + 1) + "个按钮被点击了");
+    //         })
+    //     })(i);
+    // }
+    /**
+     * 在ES6中使用let/const解决块级作用域问题，let和const有块级作用域，const定义常量，在for块级中使用let解决块级作用域问题。
+     */
+    // ES6使用let/const
+    const btns = document.getElementsByTagName("button");
+    for (let i = 0; i < btns.length; i++) {
+        btns[i].addEventListener('click', function (param) {
+            console.log("第" + (i + 1) + "个按钮被点击了");
+        })
+    }
+    // 结果和使用闭包解决一致。
+</script>
+</body>
+</html>

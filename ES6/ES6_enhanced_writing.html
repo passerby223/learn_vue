@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /**
+     * ES6的对象属性增强型写法
+     */
+    // ES6以前定义一个对象
+    // const name = "小花";
+    // const age = 21;
+    // const user = {
+    //     name: name,
+    //     age: age
+    // }
+    // console.log(user)
+    // // ES6之后定义一个对象
+    // const user_after_ES6 = {
+    //     name, age
+    // }
+    // console.log(user_after_ES6)
+    /**
+     * ES6对象的函数增强型写法
+     */
+        // ES6之前对象内定义函数
+    const obj = {
+            run: function () {
+                console.log("奔跑");
+            }
+        }
+    // ES6写法
+    const obj1 = {
+        run() {
+            console.log("奔跑");
+        }
+    }
+    obj.run();
+    obj1.run();
+    /**
+     *
+     */
+</script>
+</body>
+</html>
