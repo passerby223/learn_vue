@@ -34,5 +34,23 @@
         * 选择`Add New Configuration`
         * 在弹出的对话框中按照如下配置进行设置
             ![web_npm](pictures/web_npm.png)
-
-
+## UI组件库Element环境配置
+* 安装
+    ```bash
+    cnpm i element-ui -S
+    ```
+* `Element`完整引入
+    * 在 main.js 中写入以下内容
+        ```bash
+        import Vue from 'vue';
+        import ElementUI from 'element-ui';
+        import 'element-ui/lib/theme-chalk/index.css';
+        import App from './App.vue';
+        
+        Vue.use(ElementUI);
+        
+        new Vue({
+          el: '#app',
+          render: h => h(App)
+        });
+        ```
