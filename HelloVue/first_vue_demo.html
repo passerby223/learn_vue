@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HelloVue</title>
+<!--    引入vue.js框架-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<!--    视图，相当于MVVM中的V-->
+    <div id="app">
+<!--        将变量msg输出到标签h1中，所有的vue语法都必须在vue对象挂载的div元素中，如果在div元素外使用是不生效的。-->
+        <h1>{{ msg }}</h1>
+        <h3>{{ name }}</h3>
+    </div>
+    <script>
+        //编程范式：声明式编程
+        // 创建Vue实例，相当于MVVM中的VM
+        let vm = new Vue({
+            // 用于挂载要管理的元素，指定要操作的元素
+            // 将id为app的div挂载在vue对象上，data表示变量对象。
+            el: '#app',
+            // 构建虚拟数据，相当于MVVM中的M
+            data: {
+                msg: "hello-world",
+                name: "字符型"
+            }
+        })
+    </script>
+
+</body>
+</html>

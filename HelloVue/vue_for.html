@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue列表展示</title>
+    <!--    引入vue.js框架-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>{{ msg }}</h1>
+    <ul>
+        <li v-for="(item, index) in movies" :key="index">{{ item }}</li>
+    </ul>
+</div>
+<script>
+    let app = new Vue({
+        el: "#app",//挂载需要管理的元素
+        data: {//定义虚拟数据
+            msg: "电影清单",
+            movies: ["肖申克的救赎", "遗愿清单", "触不可及", "绿皮书"]//定义一个数组
+        }
+    })
+</script>
+</body>
+</html>

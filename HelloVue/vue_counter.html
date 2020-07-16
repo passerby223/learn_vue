@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue实现的计数器</title>
+    <!--    引入vue.js框架-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h2>当前计数{{ num }}</h2>
+    <!--    第一种方式  -->
+    <!--    <button v-on:click="num++">+</button>  -->
+    <!--    `v-on`可以省略为`@`  -->
+    <!--    <button @click="num--">-</button>  -->
+
+    <!--    第二种方式-->
+    <button v-on:click="add()">+</button>
+    <button @click="sub()">-</button>
+</div>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            num: 0
+        },
+        methods: {
+            add: function () {
+                console.log("add")
+                this.num++;
+            },
+            sub: function () {
+                console.log("sub")
+                this.num--;
+            }
+        }
+    })
+</script>
+</body>
+</html>
