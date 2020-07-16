@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<!--v-text会覆盖dom元素中的数据，相当于js的innerHTML方法。-->
+<div id="app">
+    <h1>不使用v-text</h1>
+    <h3>{{message}}，啧啧啧</h3>
+    <h1>使用v-text，以文本形式显示,会覆盖</h1>
+    <h3 v-text="message">，啧啧啧</h3>
+</div>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "你好啊"
+        }
+    })
+</script>
+</body>
+</html>

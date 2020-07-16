@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<!--v-bind动态绑定class(数组用法)-->
+<!--class属性中可以放数组，会依次解析成对应的class。-->
+<div id="app">
+    <!-- 加上单引号当成字符串 -->
+    <h2 class="title" :class="['active','line']">{{message}}</h2>
+    <!-- 不加会被当成变量 -->
+    <h2 class="title" :class="[active,line]">{{message}}</h2>
+    <h2 class="title" :class="getClasses()">{{message}}</h2>
+
+</div>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "你好啊",
+            active: "aaaa",
+            line: 'bbbb'
+        },
+        methods: {
+            getClasses() {
+                return [this.active, this.line]
+            }
+        },
+    })
+</script>
+</body>
+</html>
