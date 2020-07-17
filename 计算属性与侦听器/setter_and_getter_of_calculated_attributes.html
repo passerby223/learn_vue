@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性中的setter和getter</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>计算属性：computed的getter/setter</h1>
+    <h2>fullName</h2>
+    {{fullName}}
+    <h2>firstName</h2>
+    {{firstName}}
+    <h2>lastName</h2>
+    {{lastName}}
+</div>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            firstName: "zhang",
+            lastName: "san",
+        },
+        computed: {
+            fullName: {
+                get: function () {
+                    return this.firstName + " " + this.lastName
+                },
+                set: function (value) {
+                    var list = value.split(' ');
+                    this.firstName = list[0]
+                    this.lastName = list[1]
+                }
+            }
+        },
+    });
+</script>
+</body>
+</html>
