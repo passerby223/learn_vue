@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!-- 1.遍历过程没有使用index索引-->
+    <!-- 格式为：(value, name) -->
+    <ul>
+        <li v-for="(item,key) in user">{{key+"-"+item}}</li>
+    </ul>
+    <!-- 格式为：(value, name, index) -->
+    <ul>
+        <li v-for="(item,key,index) in user">{{key+"-"+item+"-"+index}}</li>
+    </ul>
+
+</div>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            user: {
+                name: "zzz",
+                height: 188,
+                age: 24
+            }
+        }
+    })
+</script>
+</body>
+</html>
