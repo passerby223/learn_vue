@@ -54,3 +54,11 @@
           render: h => h(App)
         });
         ```
+## 安装Vue.js官方的路由管理器Vue Router
+```bash
+cnpm install vue-router
+```
+## 安装http请求库axios
+```bash
+cnpm install axios -s
+```
