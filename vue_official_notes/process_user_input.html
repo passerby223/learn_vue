@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>处理用户输入</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app1">
+    <p>{{ message }}</p>
+    <button v-on:click="reverseMessage">反转消息内容</button>
+</div>
+<div id="app-2">
+    <p>{{ message }}</p>
+    <input v-model="message">
+</div>
+<script>
+    var app1 = new Vue({
+        el: "#app1",
+        data: {
+            message: "I Love Python and Vue.js"
+        },
+        methods: {
+            reverseMessage: function () {
+                this.message = this.message.split(' ').reverse().join(' ')
+            }
+        }
+    });
+    var app2 = new Vue({
+        el: '#app-2',
+        data: {
+            message: 'Hello Vue!'
+        }
+    });
+</script>
+</body>
+</html>

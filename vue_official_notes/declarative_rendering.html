@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>声明式渲染</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    {{ message }}
+</div>
+<div id="app-2">
+    <!--    v-bind指令，指令带有前缀 v-，以表示它们是 Vue 提供的特殊 attribute。它们会在渲染的 DOM 上应用特殊的响应式行为  -->
+    <!--    将这个元素节点的 title attribute 和 Vue 实例的 message property 保持一致  -->
+    <span v-bind:title="message">
+    鼠标悬停几秒钟查看此处动态绑定的提示信息！
+  </span>
+</div>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            message: "Hello Vue!"
+        }
+    });
+    var app2 = new Vue({
+        el: "#app-2",
+        data: {
+            message: '页面加载于 ' + new Date().toLocaleString()
+        }
+    })
+</script>
+</body>
+</html>
