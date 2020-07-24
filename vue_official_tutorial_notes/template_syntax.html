@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div v-bind:id="dynamicId">测试</div>
+    <button v-bind:disabled="isButtonDisabled">测试按钮</button>
+</div>
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            // 此处设置div的id值为一个变量，不再是一个固定的字符串了。
+            dynamicId: "div_id",
+            // 当isButtonDisabled=true时，按钮不可被点击，否则可以被点击
+            isButtonDisabled: true
+        }
+    })
+</script>
+</body>
+</html>

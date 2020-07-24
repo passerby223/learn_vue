@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <ol>
+        <li v-for="(user, index) in userlist" :key="index">
+            <img :src="user.avatar" alt="头像">
+            {{ user.name }}-{{ user.age }}
+            <input type="checkbox" name="" id="" :checked="user.sex===1">
+        </li>
+    </ol>
+</div>
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            avatar: 'https://www.baidu.com/img/bd_logo1.png',
+            userlist: [
+                {
+                    name: 'lookroot',
+                    age: 20,
+                    sex: 1,
+                    avatar: 'https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=218375221,1552855610&fm=111&gp=0.jpg'
+                },
+                {
+                    name: 'lili',
+                    age: 21,
+                    sex: 2,
+                    avatar: 'https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1305353222,2352820043&fm=26&gp=0.jpg'
+                }
+            ]
+        }
+    })
+</script>
+<style>
+    #app img {
+        width: 100px;
+        height: 100px;
+    }
+</style>
+</body>
+</html>
