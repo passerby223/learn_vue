@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div v-bind:class="[activeClass, errorClass]" id="app1">
+    <p>发送到官方深V更多1</p>
+</div>
+<!--根据条件切换列表中的 class，可以用三元表达式-->
+<div id="app2" v-bind:class="[isActive ? activeClass : '', errorClass]">
+    <p>发送到官方深V更多2</p>
+</div>
+
+<script>
+    // 数组语法
+    let vm1 = new Vue({
+        el: "#app1",
+        data: {
+            activeClass: 'active',
+            errorClass: 'text-danger'
+        }
+    })
+    // 数组语法-三元表达式
+    let vm2 = new Vue({
+        el: "#app2",
+        data: {
+            isActive: true,
+            activeClass: 'active',
+            errorClass: 'text-danger'
+        }
+    })
+
+</script>
+</body>
+</html>

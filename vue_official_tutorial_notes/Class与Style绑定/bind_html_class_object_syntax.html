@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div class="static" v-bind:class="{ active: isActive, 'text-danger': hasError }" id="app">
+    <p>哈啊啊啊啊啊啊1</p>
+</div>
+<div v-bind:class="classObject" id="app1">
+    <p>哈啊啊啊啊啊啊2</p>
+</div>
+<div id="app2" v-bind:class="classObject">
+    <p>哈啊啊啊啊啊啊3</p>
+</div>
+<script>
+    // 对象语法
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            isActive: true,
+            hasError: false
+        },
+    })
+    let vm1 = new Vue({
+        el: "#app1",
+        data: {
+            classObject: {
+                active: true,
+                'text-danger': false
+            }
+        }
+    })
+    // 计算属性
+    let vm2 = new Vue({
+        el: "#app2",
+        data: {
+            isActive: true,
+            error: null
+        },
+        computed: {
+            classObject: function () {
+                return {
+                    active: this.isActive && !this.error,
+                    'text-danger': this.error && this.error.type === 'fatal'
+                }
+            }
+        }
+    })
+
+</script>
+</body>
+</html>
