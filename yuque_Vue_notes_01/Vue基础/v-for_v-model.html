@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for_v-model</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id='app'>
+    <div>
+        <p>
+            <label for="id">id</label>
+            <input type="text" v-model="id">
+        </p>
+        <p>
+            <label for="name">name</label>
+            <input type="text" v-model="name">
+        </p>
+        <button @click="add">添加</button>
+    </div>
+    <p v-for="(item,index) in arr">
+        <input type="checkbox">{{index+1}}.ID:{{item.id}},name:{{item.name}}</p>
+</div>
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            arr: [{name: "cheng", id: 15}, {name: "jiangwei", id: 72}, {name: "武器", id: 39}],
+            id: "",
+            name: ""
+        },
+        methods: {
+            add() {
+                if (this.id && this.name) {
+                    this.arr.unshift({name: this.name, id: Number(this.id)})
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

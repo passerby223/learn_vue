@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>局部过滤器和全局过滤器</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    {{msg | formatMsg}}
+</div>
+<script>
+    // 全局过滤器
+    Vue.filter('formatMsg', function (msg) {
+        return msg.replace(/王子/g, 'King')
+    })
+    new Vue({
+        el: "#app",
+        data: {
+            msg: "我是王子,神奇的王子,非凡的王子"
+        },
+        // 局部过滤器
+        // filters: {
+        //     formatMsg: function (msg) {
+        //         // var newMsg = msg.replace("王子", "国王");//只过滤替换首个`王子`为`国王`
+        //         var newMsg = msg.replace(/王子/g, "国王");//过滤替换所有`王子`为`国王`
+        //         return newMsg
+        //     }
+        // }
+    })
+</script>
+</body>
+</html>
