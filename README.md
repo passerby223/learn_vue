@@ -1,16 +1,19 @@
 # 学习vue的一些demo
 ## 创建Vue组件化项目所需环境配置
-* 安装`Node.js`
-    * 使用`wget`下载安装包
+* Ubuntu20.04从`NodeSource`中安装`Node.js`和`npm`
+    * 参考[官方安装教程](https://github.com/nodesource/distributions/blob/master/README.md)
+    * NodeSource 是一个公司，聚焦于提供企业级的 Node 支持。它维护了一个 APT 软件源，其中包含了很多 Node.js 版本。如果你的应用需要指定版本的Node.js 版本，使用这个软件源。
+    * 以`sudo`用户身份运行下面的命令，下载并执行`NodeSource`安装脚本
         ```bash
-        wget https://nodejs.org/dist/latest-v12.x/node-v12.18.2-linux-x64.tar.gz
+        curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
         ```
-    * 查看`Node.js`是否安装成功
+    * 一旦`NodeSource`源被启用，安装`Node.js`和`npm`
+        ```bash
+        sudo apt-get install nodejs -y
+        ```
+    * 验证`Node.js`和`npm`是否正确安装,打印它们的版本号
         ```bash
         node -v
-        ```
-    * 查看`npm`是否安装成功
-        ```bash
         npm -v
         ```
 * 安装`cnpm`淘宝镜像源
