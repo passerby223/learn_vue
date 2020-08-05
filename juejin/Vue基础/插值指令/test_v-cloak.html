@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="app" v-cloak>
+    <!-- 在某些情况下，我们浏览器可能会直接显然出未编译的Mustache标签。
+    v-cloak指令和CSS 规则一起用的时候，能够解决插值表达式闪烁的问题（即：可以隐藏未编译的标签直到实例准备完毕）-->
+    <!-- 在vue解析之前, div中有一个属性v-cloak
+    在vue解析之后, div中没有一个属性v-cloak -->
+    <p>{{message}}</p>
+
+</div>
+<script>
+    setTimeout(() => {
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                message: "有意栽花花不开，无心插柳柳成荫！"
+            }
+        })
+    }, 2000)
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue初体验</title>
+    <!--1、导入Vue的包-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<!--这个div区域就是MVVM中的 View-->
+<div id="app">
+    {{message}}
+</div>
+<script>
+    // 2、创建一个Vue的实例
+    var app = new Vue({
+        el: '#app', //用于挂载要管理的元素
+        data: {// 定义数据
+            message: '学习Vue.js'
+        }
+    });
+</script>
+
+</body>
+</html>
