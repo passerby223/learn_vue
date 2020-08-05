@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!-- v-text作用和Mustache比较相似：都是用于将数据显示在界面中, 不同的是 v-text 是写在标签属性中 v-text通常情况下，接收一个string类型  -->
+    <p>{{message}}</p>
+    <p v-text="message"></p>
+
+</div>
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            message: "有意栽花花不开，无心插柳柳成荫！"
+        }
+    })
+</script>
+</body>
+</html>

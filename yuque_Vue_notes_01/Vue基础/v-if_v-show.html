@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-if_v-show</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<script>
+    /**
+     * 一般来说,v-if有更高的切换消耗而v-show有更高的初始渲染消耗。
+     * 如果需要频繁切换v-show较好。如果在运行时条件不大可能改变v-if较好
+     * v-if为false 是从DOM树上将元素移除。每次都会重新删除或创建元素
+     * v-show 每次不会重新进行DOM的删除和创建操作。只是切换了元素的display属性
+     * display：none会让元素从渲染树中消失，渲染的时候不占据任何空间；
+     * visibility：hidden不会让元素从渲染树中消失，渲染的时候仍然占据空间，只是内容不可见。
+     */
+</script>
+</body>
+</html>
