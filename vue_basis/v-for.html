@@ -14,11 +14,22 @@
             <input type="checkbox" name="" id="" :checked="user.sex===1">
         </li>
     </ol>
+    <input type="text" v-model="title">
+    <span>{{title}}</span>
+    <form action="">
+        <input type="text" v-model="user.name">
+        <input type="text" v-model="user.age">
+        <select v-model="user.sex">
+            <option :value="sex.count" v-for="(sex,index) in sexlist">{{sex.name}}</option>
+        </select>
+        <button>保存</button>
+    </form>
 </div>
 <script>
     let vm = new Vue({
         el: "#app",
         data: {
+            title: "地方共和国",
             avatar: 'https://www.baidu.com/img/bd_logo1.png',
             userlist: [
                 {
@@ -33,6 +44,16 @@
                     sex: 2,
                     avatar: 'https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1305353222,2352820043&fm=26&gp=0.jpg'
                 }
+            ],
+            user: {
+                name: 'root',
+                age: 12,
+                sex: 2,
+                avatar: ''
+            },
+            sexlist: [
+                {count: 1, name: '男'},
+                {count: 2, name: '女'},
             ]
         }
     })

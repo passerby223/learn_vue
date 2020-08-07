@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>computed计算属性</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    num1<input type="text" v-model.number="count1">
+    <br>
+    num2<input type="text" v-model.number="count2">
+    <br>
+    <span>num1 + num2 = {{numSum}}</span>
+    <ul>
+        <li v-for="(loginUser,index) in showUserList" :key="index">{{'name:' + loginUser.name + 'sex:' + loginUser.sex}}
+        </li>
+    </ul>
+</div>
+
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            count1: null,
+            count2: null,
+            userList: [
+                {name: '熊大', sex: 2},
+                {name: '翠花', sex: 1}
+            ],
+        },
+        computed: {
+            //在两个输入框中输入数字的时候就实时计算出这两个数字的和
+            numSum() {
+                return this.count1 + this.count2;
+            },
+            showUserList() {
+                return this.userList.filter((user) => {
+                    return user.sex === 1;
+                })
+            }
+
+        },
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-if和v-show</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div v-if="isShow">v-if isShow</div>
+    <div v-show="isShow">v-show isShow</div>
+    <!--    我们在页面中定义好，只显示性别为1的用户，这样做页面一开始就不会渲染了，减轻了渲染压力-->
+    <span v-if="loginUser.sex === 1">{{loginUser.name}}</span>
+</div>
+<script>
+    /**
+     * v-if和v-show的适用场景
+     * v-if有更高的切换消耗，v-show有更高的初始渲染消耗,
+     * 所以经常切换显示与隐藏的使用 v-show；初始化页面的时候就控制是否显示与隐藏的使用 v-if,减轻渲染压力
+     */
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            isShow: true,
+            loginUser: {
+                name: "小花花",
+                sex: 1,
+            }
+        }
+    })
+</script>
+</body>
+</html>
