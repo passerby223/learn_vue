@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue事件综合演练-用户账号清单小程序</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <ul>
+        <li v-for="(item,index) in userList" :key="index">①用户名：{{item.username}}②密码：{{item.password}}③所属用户组：{{item.group}}
+        </li>
+    </ul>
+    <form action="">
+        <p>
+            username<input type="text" v-model="user.username">
+        </p>
+        <p>
+            password<input type="password" v-model="user.password">
+        </p>
+        <p>
+            group<input type="text" v-model="user.group">
+        </p>
+        <p>
+            <!--  button 是html表单中的默认提交，只要点了就会提交到指定页面，使用vue时如果不想让它提交页面，也不需要提交页面，-->
+            <!--  就需要修改一下这个绑定的点击事件，这个prevent可以阻止页面的默认事件，这样页面就不会跳转了！-->
+            <button @click.prevent="submit()">提交</button>
+        </p>
+
+    </form>
+</div>
+
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            userList: [],
+            user: {
+                username: null,
+                password: null,
+                group: null,
+            }
+        },
+        methods: {
+            submit() {
+                // 对一个对象进行深拷贝：先把对象序列化为字符串，然后再对它进行反序列化。
+                let userInfo = JSON.parse(JSON.stringify(this.user))
+                console.log(userInfo)
+                this.userList.push(userInfo)
+                this.user.username = null;
+                this.user.password = null;
+                this.user.group = null;
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue动态绑定class</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <ul>
+        <li :class="{active:showIndex==index}" v-for="(item,index) in notice" :key="index" @click="showIndex=index">{{item}}</li>
+    </ul>
+</div>
+
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            showIndex: null,
+            notice: ['回复我的', '@我的', '收到赞的']
+        },
+    })
+</script>
+<style>
+    ul {
+        background-color: #dae5f5;
+    }
+
+    ul li {
+        height: 50px;
+        line-height: 50px;
+    }
+
+    ul li:hover {
+        cursor: pointer;
+    }
+
+    ul .active {
+        color: #5faee3;
+    }
+</style>
+</body>
+</html>

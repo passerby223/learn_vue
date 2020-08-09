@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on来监听dom</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <h3>计数器</h3>
+    <span>{{count}}</span>
+    <button v-on:click="count++;clickAdd()">+</button>
+    <button @click="count--;clickSub()">-</button>
+</div>
+
+<script>
+
+    // 实现一个计数器功能
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            count: 0,
+        },
+        methods: {
+            clickAdd() {
+                console.log('点击了加号!')
+            },
+            clickSub() {
+                console.log('点击了减号!')
+            }
+        }
+    })
+</script>
+</body>
+</html>
