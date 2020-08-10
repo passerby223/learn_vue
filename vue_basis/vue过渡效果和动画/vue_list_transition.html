@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue列表过渡</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="app">
+    <transition-group leave-active-class="animated bounceInDown">
+        <div v-for="i in list" @click="del(i)" :key="i">{{i}}</div>
+    </transition-group>
+</div>
+
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            list: [1, 2, 3, 4]
+        },
+        methods: {
+            del(i) {
+                this.list = this.list.filter((item) => {
+                    return item != i;
+                })
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <vue-header></vue-header>
+    <div>
+        <h1>app主体</h1>
+    </div>
+    <son></son>
+    <vue-footer></vue-footer>
+
+</div>
+<!--定义son组件-->
+<template id="son">
+    <div>
+        <h2>私有son组件</h2>
+        <!--        全局组件可以正常渲染-->
+        <vue-header></vue-header>
+        <!--        私有组件footer提示未注册，会报错-->
+        <vue-footer></vue-footer>
+    </div>
+</template>
+<template id="footer">
+    <div>
+        <h2>私有footer组件</h2>
+    </div>
+</template>
+<template id="header">
+    <div>
+        <h2>全局header组件</h2>
+    </div>
+</template>
+<script>
+    // 定义全局组件，全局组件需要在vue实例化之前进行定义
+    Vue.component('vue-header', {
+        template: '#header'
+    })
+    let vm = new Vue({
+        el: "#app",
+        data: {},
+        components: {
+            // 定义私有组件
+            // 注册son组件
+            'son': {
+                template: '#son',
+            },
+            //注册fotter组件
+            'vue-footer': {
+                template: '#footer'
+            }
+        }
+    })
+</script>
+
+</body>
+</html>
