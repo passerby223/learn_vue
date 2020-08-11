@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>notebook</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<section id="app">
+    <h3>notebook</h3>
+    输入note回车保存<input type="text" v-model="editNote" @keyup.enter="add">
+    <ul>
+        <li v-for="(item,index) in noteArr" :key="index" @mouseover="">
+            <div>
+                <span>{{index+1}}</span>
+                <label>{{item}}</label>
+                <button id="del-single" @click="delSN(index)">删除</button>
+            </div>
+        </li>
+    </ul>
+    <h4 id="note-count" v-show="noteArr.length!=0">当前一共{{noteArr.length}}个note</h4>
+    <button id="clear-all"  v-show="noteArr.length!=0" @click="clear">清空所有note</button>
+</section>
+
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            editNote: null,
+            noteArr: ['吃饭', '学习', '睡觉'],
+            // noteSum: this.noteArr.length,
+        },
+        methods: {
+            //新增note
+            add: function () {
+                this.noteArr.push(this.editNote);
+                this.editNote = null;
+            },
+            // 清空notebook
+            clear: function () {
+                // 方法一，为数组重新赋值为一个空数组
+                this.noteArr = []
+                // 方法二，循环遍历删除数组中的元素
+                // while (this.noteArr.length > 0) {
+                //     this.noteArr.pop()
+                // }
+            },
+            delSN: function (index) {
+                this.noteArr.splice(index, 1)
+            },
+        }
+    })
+</script>
+<style>
+    #note-count {
+        float: left;
+    }
+
+    #clear-all {
+        margin-left: 80px;
+        margin-top: 20px;
+        padding: 0;
+    }
+
+    #del-single {
+        padding: 0;
+        margin-left: 150px;
+    }
+</style>
+</body>
+</html>

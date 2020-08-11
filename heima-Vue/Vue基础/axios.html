@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用axios发送请求</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<button class="get">GET请求</button>
+<button class="post">POST请求</button>
+<script>
+    // 发送GET请求
+    document.querySelector(".get").onclick = function () {
+        axios.get('http://81.70.33.238/get?user=admin&pwd=123456').then(function (response) {
+            console.log(response);
+        }).catch(function (err) {
+            console.log(err);
+        }).then(function () {
+            console.log("GET请求执行完毕!");
+        })
+    }
+    //发送POST请求
+    document.querySelector('.post').onclick = function () {
+        axios.post('http://81.70.33.238/post', {
+            "age": "21",
+            "gender": "女",
+            "user": "小花花"
+        }).then(function (response) {
+            console.log(response);
+        }).catch(function (err) {
+            console.log(err);
+        }).then(function () {
+            console.log("POST请求执行完毕!");
+        })
+    }
+</script>
+</body>
+</html>
