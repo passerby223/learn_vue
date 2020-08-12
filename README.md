@@ -65,3 +65,8 @@ cnpm install vue-router
 ```bash
 cnpm install axios -s
 ```
+## 运行vue项目
+```bash
+cnpm install
+npm run serve
+```
