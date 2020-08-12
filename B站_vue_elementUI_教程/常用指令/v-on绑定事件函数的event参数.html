@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>通过event形参实时获取input输入的值</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="text" @input="showInputText">
+    <hr>
+    <a :href="link">百度</a>
+</div>
+
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            link: "https://www.baidu.com/"
+        },
+        methods: {
+            //使用内置event形参，通过event.target.value实时获取当前事件对象的value值
+            showInputText: function (event) {
+                console.log(event.target.value)
+            }
+        }
+    })
+</script>
+</body>
+</html>

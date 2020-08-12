@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-html和v-text</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>v-html会将vue中的属性的值作为HTML来输出</p>
+    <span v-html="htmlA">{{addr}}</span>
+    <hr>
+    <p>v-text会将vue中的属性的值作为文本来输出</p>
+    <span v-text="htmlA">{{addr}}</span>
+</div>
+
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            addr: "北京市海淀区",
+            htmlA: "<a href='https://www.baidu.com/'>百度</a>"
+        },
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性和方法</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h4>{{showCurrentTime()}}</h4>
+    <hr>
+    <input type="button" value="获取当前时间" @click="showCurrentTimeAttributes">
+    <p>{{currentTime}}</p>
+
+</div>
+
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            currentTime: null,
+        },
+        methods: {
+            showCurrentTime: function () {
+                return new Date();
+            },
+            showCurrentTimeAttributes: function () {
+                this.currentTime = new Date();
+            }
+        }
+    })
+</script>
+</body>
+</html>
