@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for&v-if</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <ul v-if="todos.length">
+        <li v-for="todo in todos">
+            {{ todo }}
+        </li>
+    </ul>
+    <p v-else>No todos left!</p>
+</div>
+
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            todos: [
+                '鼎折覆餗',
+                '第三方的〔〕',
+                '口服根本没法打'
+            ]
+        },
+    })
+</script>
+</body>
+</html>

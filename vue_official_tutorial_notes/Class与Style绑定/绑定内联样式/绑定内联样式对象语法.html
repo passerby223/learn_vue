@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绑定内联样式对象语法</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--    对象语法绑定内联样式-->
+    <p :style="{color: activeColor, fontSize: fontS + 'px'}">哈哈哈</p>
+    <p :style="styleObj">啦啦啦</p>
+</div>
+
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            activeColor: 'red',
+            fontS: 20,
+            styleObj: {
+                color: "blue",
+                fontSize: '25px'
+            }
+        },
+    })
+</script>
+</body>
+</html>

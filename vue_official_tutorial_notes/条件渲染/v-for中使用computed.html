@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for中使用computed</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <ol>
+        <li v-for="n in evenNumbers">{{n}}</li>
+    </ol>
+</div>
+
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            nums: [1, 2, 3, 4, 5, 6, 7, 8]
+        },
+        // 计算属性使用过滤器
+        computed: {
+            evenNumbers: function () {
+                return this.nums.filter(function (number) {
+                    return number % 2 === 0;
+                })
+            }
+        }
+    })
+</script>
+</body>
+</html>

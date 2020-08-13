@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for使用methods对数组符合条件的元素进行过滤</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <ul v-for="set in sets">
+        <li v-for="n in even(set)">{{ n }}</li>
+    </ul>
+</div>
+
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            sets: [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]]
+        },
+        methods: {
+            even: function (numbers) {
+                return numbers.filter(function (number) {
+                    return number % 2 === 0;
+                })
+            }
+        }
+    })
+</script>
+</body>
+</html>

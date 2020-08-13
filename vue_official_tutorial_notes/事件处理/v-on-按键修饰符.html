@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on-按键修饰符</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--    input输入框enter事件-->
+    <input type="text" @keyup.enter="submit" placeholder="input输入框中enter按键监听" :style="{width: '200px'}">
+    <hr>
+    <!--    按键监听事件-->
+    <input @keyup.ctrl.67="ctrlPress" placeholder="input输入框中ctrl+C按键监听" :style="{width: '200px'}">
+</div>
+
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            msg: "光标在input输入框中时，按了enter键!"
+        },
+        methods: {
+            submit: function () {
+                alert(this.msg);
+            },
+            ctrlPress: function () {
+                alert("光标在input输入框中时，按了Ctrl+C键!")
+            }
+        }
+    })
+</script>
+</body>
+</html>

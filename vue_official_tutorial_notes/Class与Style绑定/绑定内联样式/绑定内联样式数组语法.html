@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绑定内联样式数组语法</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--    绑定内联样式数组语法-->
+    <h1 :style="[color, backgroundColor, width]">Vue</h1>
+</div>
+
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            color: {
+                color: 'red'
+            },
+            backgroundColor: {
+                backgroundColor: 'blue'
+            },
+            width: {
+                width: '60px'
+            }
+        },
+    })
+</script>
+</body>
+</html>
