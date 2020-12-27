@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <!--    v-for 用于列表的循环渲染。-->
+    <ul>
+        <li v-for="item in music">
+            {{item.name}}
+        </li>
+    </ul>
+    <hr>
+    <ul>
+        <li v-for="item in obj">{{item}}</li>
+    </ul>
+</div>
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data() {
+            return {
+                //要循环的数组
+                music: [
+                    {name: "青花瓷"},
+                    {name: "阳光总在风雨后"},
+                    {name: "十年"},
+                ],
+                obj: {
+                    name: "小花花",
+                    age: 21,
+                    gender: "女"
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>

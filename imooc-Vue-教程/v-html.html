@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <div v-html="message"></div>
+</div>
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data() {
+            return {
+                // 使用了 v-html 指令，它绑定 message 值，会将 html 元素插入 <div> 标签内。
+                message: '<a href="https://www.baidu.com/">百度一下</a>',
+            }
+        }
+    });
+</script>
+</body>
+</html>

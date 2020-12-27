@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <!--    vue提供了v-if和v-show两个指令来控制页面元素的显示和隐藏。-->
+    <!--    通过v-show设置状态的按钮元素还在页面中，只是通过样式display:none设置隐藏。而通过v-if设置状态的按钮元素从页面中删除了。-->
+    <div>
+        <button v-if="buttonIf">v-if按钮</button>
+        <button @click="buttonIf = true">设置显示</button>
+        <button @click="buttonIf = false">设置隐藏</button>
+    </div>
+    <div>
+        <button v-show="buttonShow">v-show按钮</button>
+        <button @click="buttonShow=true">设置显示</button>
+        <button @click="buttonShow=false">设置隐藏</button>
+    </div>
+</div>
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data() {
+            return {
+                buttonIf: true,
+                buttonShow: true,
+            }
+        }
+    });
+</script>
+</body>
+</html>

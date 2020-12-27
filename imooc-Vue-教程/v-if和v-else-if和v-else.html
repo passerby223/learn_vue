@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <p>成绩单</p>
+    <div v-if="score >= 90">
+        <span>您的成绩评级为A!</span>
+    </div>
+    <div v-else-if="score >= 80">
+        <span>您的成绩评级为B!</span>
+    </div>
+    <div v-else="score >= 70">
+        <span>您的成绩评级为C!</span>
+    </div>
+</div>
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data() {
+            return {
+                score: 97
+            }
+        }
+    });
+</script>
+</body>
+</html>

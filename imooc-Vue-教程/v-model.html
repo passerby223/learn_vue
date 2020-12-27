@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <!--    vue通过了指令v-model来实现数据的双向绑定。-->
+    <div>
+        <label for="data">请输入内容：</label>
+        <input type="text" v-model="inputData" id="data" placeholder="请输入内容">
+        <hr>
+        <p>您输入的内容为：{{inputData}}</p>
+    </div>
+</div>
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data() {
+            return {
+                inputData: "",
+            }
+        },
+    });
+</script>
+</body>
+</html>

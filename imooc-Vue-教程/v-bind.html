@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <div v-bind:title="title">鼠标悬停查看消息!</div>
+    <div>
+        <a :href="href">百度一下</a>
+    </div>
+    <div>
+        <img :src="src" alt="慕课网图片">
+    </div>
+    <div>
+        <button :disabled="disabled">禁用按钮</button>
+    </div>
+</div>
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data() {
+            return {
+                title: '您好，我是小慕，欢迎来到慕课网！希望你可以在慕课网学到更多的东西！',
+                href: "https://www.baidu.com/",
+                src: "http://img2.mukewang.com/szimg/5df1deec09ba554712000676-360-202.png",
+                disabled: true
+
+            }
+        }
+    });
+</script>
+</body>
+</html>
