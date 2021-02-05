@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        body {
+            width: 600px;
+        }
+
+        table {
+            border: 1px solid black;
+            width: 100%;
+        }
+
+        th {
+            height: 50px;
+        }
+
+        th, td {
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        span {
+            float: right;
+        }
+
+        [v-cloak] {
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <table>
+        <tr>
+            <th>序号</th>
+            <th>商品名称</th>
+            <th>单价</th>
+            <th>数量</th>
+            <th>金额</th>
+            <th>操作</th>
+        </tr>
+        <tr v-for="(book, index) in books" :key="book.id">
+            <td>{{book.id}}</td>
+            <td>{{book.title}}</td>
+            <td>{{book.price}}</td>
+            <td>
+                <button :disabled="book.count === 0" @click="book.count-=1">-</button>
+                {{book.count}}
+                <button @click="book.count+=1">+</button>
+            </td>
+            <td>
+                {{itemPrice(book.price, book.count)}}
+            </td>
+            <td>
+                <button @click="deleteItem(index)">删除</button>
+            </td>
+        </tr>
+    </table>
+    <span>总价：¥ {{totalPrice}}</span>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            books: [
+                {id: 1, title: 'Vue.js从入门到实战', price: 98, count: 1},
+                {id: 2, title: 'VC++深入理解', price: 168, count: 1},
+                {id: 3, title: 'Servlet/JSp深入理解', price: 139, count: 1}
+            ]
+        },
+        methods: {
+            itemPrice(price, count) {
+                return price * count;
+            },
+            deleteItem(index) {
+                return this.books.splice(index, 1);
+            }
+        },
+        computed: {
+            totalPrice() {
+                let total = 0;
+                for (let book of this.books) {
+                    total += book.price * book.count;
+                }
+                return total;
+            }
+        }
+    })
+</script>
+</body>
+</html>

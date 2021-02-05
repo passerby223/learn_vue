@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>原始字符串：{{message}}</p>
+    <p>计算后的翻转字符串：{{reversedMessage}}</p>
+    <p>方法调用后的翻转字符串：{{reversedMessage2()}}</p>
+</div>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            message: 'Vue.js从入门到实战!'
+        },
+        computed: {
+            reversedMessage: function () {
+                alert("计算属性!");
+                return this.message.split('').reverse().join('');
+            }
+        },
+        methods: {
+            reversedMessage2: function () {
+                alert('方法!');
+                return this.message.split('').reverse().join('')
+            }
+        }
+    })
+    let msg = vm.reversedMessage;
+    msg = vm.reversedMessage2();
+</script>
+</body>
+</html>
