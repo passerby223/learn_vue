@@ -31,6 +31,10 @@
             display: none;
         }
 
+        .even {
+            background-color: #cdcdcd;
+        }
+
     </style>
 </head>
 <body>
@@ -44,7 +48,7 @@
             <th>金额</th>
             <th>操作</th>
         </tr>
-        <tr v-for="(book, index) in books" :key="book.id">
+        <tr v-for="(book, index) in books" :key="book.id" :class="{even: (index + 1) % 2 === 0}">
             <td>{{book.id}}</td>
             <td>{{book.title}}</td>
             <td>{{book.price}}</td>

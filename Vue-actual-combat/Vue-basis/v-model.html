@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <label for="username">用户名：</label>
+    <input id="username" type="text" placeholder="请输入你的用户名" key="username-input" v-model.lazy="message">
+    <p>{{message}}</p>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            message: 'Vue.js从入门到实战',
+        },
+    })
+</script>
+</body>
+</html>
